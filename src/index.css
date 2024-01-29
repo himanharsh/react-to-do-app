@@ -12,10 +12,13 @@
   --fontStyle: monospace;
   --headerFSize: 44px;
   --footerFSize: 20px;
+  --taskCounterSize: 26px;
+  --taskNameSize: 24px;
 }
 
 body {
   background-color: var(--bgColor);
+  font-family: var(--fontStyle);
 }
 
 header {
@@ -45,11 +48,11 @@ footer {
 
 main {
   width: 50%;
-  height: 75vh;
+  height: 70vh;
   margin: 15vh auto 0 auto;
   outline: 5px solid var(--bgColorHF);
   background-color: white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* scrollbar styling*/
@@ -66,3 +69,42 @@ main {
   /* border: 3px solid var(--bgColor); */
 }
 /* scrollbar styling*/
+
+.taskCounter {
+  font-size: var(--taskCounterSize);
+  padding: 5px 0;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  outline: 5px solid var(--bgColorHF);
+  background-color: var(--bgColorHF);
+  color: var(--textColor);
+  font-family: var(--fontStyle);
+}
+
+li {
+  margin: 8px 5px;
+  list-style-type: none;
+}
+
+.taskName {
+  background-color: #002d62;
+  display: inline-block;
+  width: 90%;
+  font-size: var(--taskNameSize);
+  color: var(--textColor);
+}
+
+.checkIcon {
+  width: 5%;
+  font-size: var(--taskNameSize);
+  color: darkgreen;
+  background: lime;
+}
+
+.trashIcon {
+  width: 5%;
+  font-size: var(--taskNameSize);
+  color: red;
+  background-color: darkred;
+}
