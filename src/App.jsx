@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCheck, FaTrashAlt, FaPlus } from 'react-icons/fa';
 import { TbReload } from 'react-icons/tb';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const TaskCount = ({ taskArr }) => {
@@ -17,6 +17,12 @@ const TaskCount = ({ taskArr }) => {
 const App = () => {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
+
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   function add() {
     if (task === '') {
       alert('Please Enter a Task Before Adding It!');
@@ -47,6 +53,7 @@ const App = () => {
       <main>
         <div className="taskAdd">
           <input
+            ref={inputRef}
             type="text"
             placeholder="Enter your task here..."
             value={task}
