@@ -4,6 +4,16 @@ import { useState } from 'react';
 
 let nextId = 0;
 
+const TaskCount = ({ taskArr }) => {
+  let count = 0;
+  taskArr.forEach((x) => {
+    if (x.done === false) count++;
+  });
+  if (count === 1) {
+    return <div>1 TASK LEFT</div>;
+  } else return <div>{count} TASKS LEFT</div>;
+};
+
 const App = () => {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
@@ -61,6 +71,7 @@ const App = () => {
           </li>
         ))}
       </ul>
+      <TaskCount taskArr={taskList} />
     </main>
   );
 };
