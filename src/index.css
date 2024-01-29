@@ -14,6 +14,8 @@
   --footerFSize: 20px;
   --taskCounterSize: 26px;
   --taskNameSize: 24px;
+  --iconSize: 22px;
+  --plusIconSize: 28px;
 }
 
 body {
@@ -55,6 +57,14 @@ main {
   overflow-y: auto;
 }
 
+/* Removing button element's default background */
+button {
+  border: none;
+  outline: none;
+  background: none;
+  /* Removing button element's default background */
+}
+
 /* scrollbar styling*/
 ::-webkit-scrollbar {
   width: 16px;
@@ -82,29 +92,54 @@ main {
   font-family: var(--fontStyle);
 }
 
+.taskAdd {
+  width: 99%;
+  margin: 8px auto;
+  display: flex;
+}
+
+input {
+  font-family: var(--fontStyle);
+  font-size: var(--taskNameSize);
+  padding: 10px;
+  flex: 90%;
+}
+
+.add {
+  font-size: var(--plusIconSize);
+  background-color: var(--bgColorHF);
+  color: var(--textColor);
+  flex: 10%;
+}
+
 li {
   margin: 8px 5px;
   list-style-type: none;
+  display: flex;
 }
 
 .taskName {
   background-color: #002d62;
-  display: inline-block;
-  width: 90%;
+  /* display: inline-block;
+  width: 88%; */
+  flex: 88%;
   font-size: var(--taskNameSize);
   color: var(--textColor);
+  padding: 5px 10px;
 }
 
 .checkIcon {
-  width: 5%;
-  font-size: var(--taskNameSize);
+  flex: 6%;
+  font-size: var(--iconSize);
   color: darkgreen;
   background: lime;
+  padding: 5px 8px;
 }
 
 .trashIcon {
-  width: 5%;
-  font-size: var(--taskNameSize);
-  color: red;
+  flex: 6%;
+  font-size: var(--iconSize);
+  color: #ff0800;
   background-color: darkred;
+  padding: 5px 8px;
 }
