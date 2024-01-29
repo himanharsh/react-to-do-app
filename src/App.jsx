@@ -13,6 +13,19 @@ const App = () => {
   function trash(t) {
     setTaskList(taskList.filter((tl) => tl.id !== t.id));
   }
+  function checkToggle(t) {
+    const checkList = [...taskList];
+    checkList.forEach((x) => {
+      if (x.id === t.id) {
+        if (!x.done) {
+          x.done = true;
+        } else {
+          x.done = false;
+        }
+      }
+    });
+    setTaskList(checkList);
+  }
 
   return (
     <main>
@@ -30,9 +43,16 @@ const App = () => {
       </button>
       <ul>
         {taskList.map((t) => (
-          <li key={t.id}>
+          <li
+            key={t.id}
+            style={
+              t.done
+                ? { textDecoration: 'line-through' }
+                : { textDecoration: 'none' }
+            }
+          >
             {t.task}
-            <button>
+            <button onClick={() => checkToggle(t)}>
               <FaCheck />
             </button>
             <button onClick={() => trash(t)}>
