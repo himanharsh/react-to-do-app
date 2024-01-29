@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaCheck, FaTrashAlt, FaPlus } from 'react-icons/fa';
+import { TbReload } from 'react-icons/tb';
 import { useState } from 'react';
-
-let nextId = 0;
+import { v4 as uuidv4 } from 'uuid';
 
 const TaskCount = ({ taskArr }) => {
   let count = 0;
@@ -22,7 +22,7 @@ const App = () => {
       alert('Please Enter a Task Before Adding It!');
       return;
     }
-    setTaskList([...taskList, { id: nextId++, task: task, done: false }]);
+    setTaskList([...taskList, { id: uuidv4(), task: task, done: false }]);
     setTask('');
   }
   function trash(t) {
@@ -45,18 +45,20 @@ const App = () => {
   return (
     <>
       <main>
-        <input
-          type="text"
-          placeholder="Enter your task here..."
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          onKeyUp={(e) => {
-            if (e.key === 'Enter') add();
-          }}
-        />
-        <button onClick={add}>
-          <FaPlus />
-        </button>
+        <div className="taskAdd">
+          <input
+            type="text"
+            placeholder="Enter your task here..."
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            onKeyUp={(e) => {
+              if (e.key === 'Enter') add();
+            }}
+          />
+          <button className="add" onClick={add}>
+            <FaPlus />
+          </button>
+        </div>
         <ul>
           {taskList.map((t) => (
             <li key={t.id}>
@@ -71,7 +73,7 @@ const App = () => {
                 {t.task}
               </span>
               <button className="checkIcon" onClick={() => checkToggle(t)}>
-                <FaCheck />
+                {t.done ? <TbReload /> : <FaCheck />}
               </button>
               <button className="trashIcon" onClick={() => trash(t)}>
                 <FaTrashAlt />
