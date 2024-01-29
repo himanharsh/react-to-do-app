@@ -7,6 +7,12 @@ let nextId = 0;
 const App = () => {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
+  function add() {
+    setTaskList([...taskList, { id: nextId++, task: task, done: false }]);
+  }
+  function trash(t) {
+    setTaskList(taskList.filter((tl) => tl.id !== t.id));
+  }
 
   return (
     <main>
@@ -15,12 +21,11 @@ const App = () => {
         placeholder="Enter your task here..."
         value={task}
         onChange={(e) => setTask(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          setTaskList([...taskList, { id: nextId++, task: task, done: false }]);
+        onKeyUp={(e) => {
+          if (e.key === 'Enter') add();
         }}
-      >
+      />
+      <button onClick={add}>
         <FaPlus />
       </button>
       <ul>
@@ -30,7 +35,7 @@ const App = () => {
             <button>
               <FaCheck />
             </button>
-            <button>
+            <button onClick={() => trash(t)}>
               <FaTrash />
             </button>
           </li>
