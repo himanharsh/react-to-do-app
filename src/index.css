@@ -145,6 +145,9 @@ li {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
+  main {
+    margin-top: 12vh;
+  }
   main,
   .taskCounter {
     width: 60%;
