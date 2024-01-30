@@ -49,7 +49,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className="content">
       <main>
         <div className="taskAdd">
           <input
@@ -90,7 +90,7 @@ const App = () => {
         </ul>
       </main>
       <TaskCount taskArr={taskList} />
-    </>
+    </div>
   );
 };
 
