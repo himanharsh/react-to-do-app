@@ -93,7 +93,7 @@ button {
 }
 
 .taskAdd {
-  width: 99%;
+  width: 98%;
   margin: 8px auto;
   display: flex;
 }
@@ -120,8 +120,6 @@ li {
 
 .taskName {
   background-color: #002d62;
-  /* display: inline-block;
-  width: 88%; */
   flex: 88%;
   font-size: var(--taskNameSize);
   color: var(--textColor);
@@ -142,4 +140,80 @@ li {
   color: #ff0800;
   background-color: darkred;
   padding: 5px 8px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+  main,
+  .taskCounter {
+    width: 60%;
+  }
+  header {
+    font-size: 36px;
+  }
+  footer {
+    font-size: 16px;
+  }
+  .taskCounter {
+    font-size: 20px;
+  }
+  input {
+    font-size: 20px;
+  }
+  .add,
+  .checkIcon,
+  .trashIcon {
+    font-size: 20px;
+  }
+  .taskName {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  main,
+  .taskCounter {
+    width: 65%;
+  }
+  header {
+    font-size: 32px;
+  }
+  footer {
+    font-size: 14px;
+  }
+  .taskCounter {
+    font-size: 16px;
+  }
+  input {
+    font-size: 16px;
+  }
+  .add,
+  .checkIcon,
+  .trashIcon {
+    font-size: 16px;
+  }
+  .taskName {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main,
+  .taskCounter {
+    width: 70%;
+  }
+  .taskCounter {
+    font-size: 14px;
+  }
+  input {
+    font-size: 14px;
+  }
+  .add,
+  .checkIcon,
+  .trashIcon {
+    font-size: 14px;
+  }
+  .taskName {
+    font-size: 14px;
+  }
 }
