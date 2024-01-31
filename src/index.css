@@ -63,7 +63,7 @@ main {
   outline: 5px solid var(--bgColorHF);
   background-color: white;
   overflow-y: auto;
-  overflow-x: wrap;
+  overflow-wrap: break-word;
 }
 
 /* Removing button element's default background */
