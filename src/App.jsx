@@ -6,9 +6,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TaskCount = ({ taskArr }) => {
   let count = 0;
-  taskArr.forEach((x) => {
-    if (x.done === false) count++;
-  });
+  if (!!taskArr) {
+    taskArr.forEach((x) => {
+      if (x.done === false) count++;
+    });
+  }
+
   if (count === 1) {
     return <div className="taskCounter">1 TASK LEFT</div>;
   } else return <div className="taskCounter">{count} TASKS LEFT</div>;
