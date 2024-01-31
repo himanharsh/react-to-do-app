@@ -16,12 +16,19 @@ const TaskCount = ({ taskArr }) => {
 
 const App = () => {
   const [task, setTask] = useState('');
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState(
+    JSON.parse(localStorage.getItem('localTasks'))
+  );
 
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    // console.log('change');
+    localStorage.setItem('localTasks', JSON.stringify(taskList));
+  }, [taskList]);
 
   function add() {
     if (task === '') {
