@@ -38,7 +38,11 @@ const App = () => {
       alert('Please Enter a Task Before Adding It!');
       return;
     }
-    setTaskList([...taskList, { id: uuidv4(), task: task, done: false }]);
+    if (taskList === null) {
+      setTaskList([{ id: uuidv4(), task: task, done: false }]);
+    } else {
+      setTaskList([...taskList, { id: uuidv4(), task: task, done: false }]);
+    }
     setTask('');
   }
   function trash(t) {
