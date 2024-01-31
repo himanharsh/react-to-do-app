@@ -29,7 +29,6 @@ header {
   font-weight: bold;
   background-color: var(--bgColorHF);
   color: var(--textColor);
-  font-family: var(--fontStyle);
   padding: 5px 0;
   position: fixed;
   top: 0;
@@ -41,7 +40,6 @@ footer {
   font-size: var(--footerFSize);
   background-color: var(--bgColorHF);
   color: var(--textColor);
-  font-family: var(--fontStyle);
   padding: 5px 0;
   position: fixed;
   bottom: 0;
@@ -85,7 +83,6 @@ button {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--bgColorHF);
-  /* border: 3px solid var(--bgColor); */
 }
 /* scrollbar styling*/
 
@@ -97,7 +94,6 @@ button {
   outline: 5px solid var(--bgColorHF);
   background-color: var(--bgColorHF);
   color: var(--textColor);
-  font-family: var(--fontStyle);
 }
 
 .taskAdd {
