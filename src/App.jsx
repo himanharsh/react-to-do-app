@@ -74,26 +74,27 @@ const App = () => {
           </button>
         </div>
         <ul>
-          {taskList.map((t) => (
-            <li key={t.id}>
-              <span
-                className="taskName"
-                style={
-                  t.done
-                    ? { textDecoration: 'line-through' }
-                    : { textDecoration: 'none' }
-                }
-              >
-                {t.task}
-              </span>
-              <button className="checkIcon" onClick={() => checkToggle(t)}>
-                {t.done ? <TbReload /> : <FaCheck />}
-              </button>
-              <button className="trashIcon" onClick={() => trash(t)}>
-                <FaTrashAlt />
-              </button>
-            </li>
-          ))}
+          {!!taskList &&
+            taskList.map((t) => (
+              <li key={t.id}>
+                <span
+                  className="taskName"
+                  style={
+                    t.done
+                      ? { textDecoration: 'line-through' }
+                      : { textDecoration: 'none' }
+                  }
+                >
+                  {t.task}
+                </span>
+                <button className="checkIcon" onClick={() => checkToggle(t)}>
+                  {t.done ? <TbReload /> : <FaCheck />}
+                </button>
+                <button className="trashIcon" onClick={() => trash(t)}>
+                  <FaTrashAlt />
+                </button>
+              </li>
+            ))}
         </ul>
       </main>
       <TaskCount taskArr={taskList} />
