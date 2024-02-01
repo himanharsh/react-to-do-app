@@ -20,7 +20,7 @@ const TaskCount = ({ taskArr }) => {
 const App = () => {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState(
-    JSON.parse(localStorage.getItem('localTasks'))
+    JSON.parse(localStorage.getItem('localTasks')) || []
   );
 
   const inputRef = useRef(null);
