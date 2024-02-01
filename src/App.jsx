@@ -21,7 +21,7 @@ const App = () => {
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState(
     JSON.parse(localStorage.getItem('localTasks')) || []
-  );
+  ); // or [] so that when nothing is store inside localStorage, it doesn't get set to null which will throw error during iteration
 
   const inputRef = useRef(null);
   useEffect(() => {
